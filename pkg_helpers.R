@@ -6,7 +6,10 @@ pkg_title <- function(pkg) {
   
   library(stringr)
   
-  cat(str_interp('# <img src="man/figures/logo.svg" align="right" height="139" /> R package ${pkg} - ${title}\n\n'))
+  if (file.exists("man/figures/logo.svg"))
+    cat(str_interp('# <img src="man/figures/logo.svg" align="right" height="139" /> R package ${pkg} - ${title}\n\n'))
+  else
+    cat(str_interp('# R package ${pkg} - ${title}\n\n'))
   
   cat(str_interp("[![CRAN version](http://www.r-pkg.org/badges/version/${pkg})](https://CRAN.R-project.org/package=${pkg})\n"))
   cat(str_interp("[![stream r-universe status](https://mhahsler.r-universe.dev/badges/${pkg})](https://mhahsler.r-universe.dev/ui#package:${pkg})\n"))
