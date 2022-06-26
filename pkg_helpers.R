@@ -1,5 +1,5 @@
 pkg_title <- function(pkg) {
-  title <- packageDescription(pkg)$Title
+  title <- gsub("[\r\n]", " ", packageDescription(pkg)$Title)
   
   options(digits = 2)
   knitr::opts_chunk$set(tidy = TRUE, message = FALSE, fig.path = 'inst/README_files/')
