@@ -12,7 +12,7 @@ pkg_title <- function(pkg) {
     cat(str_interp('# R package ${pkg} - ${title}\n\n'))
   
   cat(str_interp("[![CRAN version](http://www.r-pkg.org/badges/version/${pkg})](https://CRAN.R-project.org/package=${pkg})\n"))
-  cat(str_interp("[![stream r-universe status](https://mhahsler.r-universe.dev/badges/${pkg})](https://mhahsler.r-universe.dev/ui/#package:${pkg})\n"))
+  cat(str_interp("[![stream r-universe status](https://mhahsler.r-universe.dev/badges/${pkg})](https://mhahsler.r-universe.dev/${pkg})\n"))
   cat(str_interp("[![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/${pkg})](https://CRAN.R-project.org/package=${pkg})\n"))
 }
 
