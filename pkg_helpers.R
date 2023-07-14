@@ -20,7 +20,7 @@ pkg_title <- function(pkg) {
 }
 
 pkg_install <- function(pkg) {
-  cat('## Installation\n\n')
+  cat('\n## Installation\n\n')
   cat('__Stable CRAN version:__ Install from within R with\n')
   cat(str_interp('```r\ninstall.packages("${pkg}")\n```\n'))
   cat('__Current development version:__\n')
