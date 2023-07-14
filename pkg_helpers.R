@@ -41,7 +41,7 @@ pkg_usage <- function(pkg, which = c("Depends", "Imports", "Suggests")) {
 }
 
 pkg_citation <- function(pkg, number = 1L,
-                         header = "Please cite the use of this package as:") {
+                         header = paste0("To cite package '", pkg, "' in publications use:")) {
   suppressWarnings(ref <- citation(pkg)[[number]])
 
   cat("\n\n", header, "\n\n")
