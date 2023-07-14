@@ -39,3 +39,12 @@ pkg_usage <- function(pkg, which = c("Depends", "Imports", "Suggests")) {
   cat("The following R packages use `", pkg, "`:\n",
       paste(format_cran_links(rev_deps), collapse = ", \n"), sep = "")
 }
+
+pkg_citation <- function(pkg, number = 1L) {
+  cat("> ")
+  print(citation(pkg)[[number]], type = "text", bibtex = FALSE)
+
+  cat("\n```\n")
+  print(citation(pkg)[[number]], style = "bibtex")
+  cat("```\n")
+}
