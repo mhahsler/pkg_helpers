@@ -20,7 +20,7 @@ pkg_title <- function(pkg) {
 }
 
 pkg_install <- function(pkg) {
-  cat('\n## Installation\n\n')
+  cat('\n\n## Installation\n\n')
   cat('__Stable CRAN version:__ Install from within R with\n')
   cat(str_interp('```r\ninstall.packages("${pkg}")\n```\n'))
   cat('__Current development version:__\n')
@@ -40,11 +40,15 @@ pkg_usage <- function(pkg, which = c("Depends", "Imports", "Suggests")) {
       paste(format_cran_links(rev_deps), collapse = ", \n"), sep = "")
 }
 
-pkg_citation <- function(pkg, number = 1L) {
+pkg_citation <- function(pkg, number = 1L,
+                         header = "Please cite the use of this package as:") {
+  suppressWarnings(ref <- citation(pkg)[[number]])
+
+  cat("\n", header, "\n")
   cat("> ")
-  print(citation(pkg)[[number]], type = "text", bibtex = FALSE)
+  print(ref, type = "text", bibtex = FALSE)
 
   cat("\n```\n")
-  print(citation(pkg)[[number]], style = "bibtex")
+  print(ref, style = "bibtex")
   cat("```\n")
 }
