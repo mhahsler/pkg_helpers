@@ -44,7 +44,7 @@ pkg_citation <- function(pkg, number = 1L,
                          header = "Please cite the use of this package as:") {
   suppressWarnings(ref <- citation(pkg)[[number]])
 
-  cat("\n\n", header, "\n")
+  cat("\n\n", header, "\n\n")
   cat("> ")
   print(ref, type = "text", bibtex = FALSE)
 
