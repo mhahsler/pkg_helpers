@@ -25,7 +25,7 @@ pkg_install <- function(pkg) {
   cat(str_interp('```r\ninstall.packages("${pkg}")\n```\n'))
   cat('__Current development version:__\n')
   cat(str_interp('Install from [r-universe.](https://mhahsler.r-universe.dev/${pkg})\n'))
-  cat(str_interp('```r\ninstall.packages("${pkg}", repos = c("https://mhahsler.r-universe.dev". "https://cloud.r-project.org/"))\n```'))
+  cat(str_interp('```r\ninstall.packages("${pkg}",\n    repos = c("https://mhahsler.r-universe.dev". "https://cloud.r-project.org/"))\n```'))
 }
 
 pkg_usage <- function(pkg, which = c("Depends", "Imports", "Suggests")) {
