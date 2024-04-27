@@ -1,7 +1,7 @@
 ### these functions help with creating markup files to present package information
 ### on GitHub
 
-pkg_title <- function(pkg) {
+pkg_title <- function(pkg, CRAN = TRUE, r_universe = TRUE, Bioc = FALSE) {
   title <- gsub("[\r\n]", " ", packageDescription(pkg)$Title)
 
   options(digits = 2)
@@ -14,9 +14,18 @@ pkg_title <- function(pkg) {
   else
     cat(str_interp('# R package ${pkg} - ${title}\n\n'))
 
-  cat(str_interp("[![CRAN version](http://www.r-pkg.org/badges/version/${pkg})](https://CRAN.R-project.org/package=${pkg})\n"))
-  cat(str_interp("[![stream r-universe status](https://mhahsler.r-universe.dev/badges/${pkg})](https://mhahsler.r-universe.dev/${pkg})\n"))
-  cat(str_interp("[![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/${pkg})](https://CRAN.R-project.org/package=${pkg})\n"))
+  if (r_universe) {
+    cat(str_interp("[![r-universe status](https://mhahsler.r-universe.dev/badges/${pkg})](https://mhahsler.r-universe.dev/${pkg})\n"))
+  }
+    
+  if (CRAN) {
+    cat(str_interp("[![Package on CRAN](http://www.r-pkg.org/badges/version/${pkg})](https://CRAN.R-project.org/package=${pkg})\n"))
+    cat(str_interp("[![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/${pkg})](https://CRAN.R-project.org/package=${pkg})\n"))
+  }
+
+  if (Bioc) {
+    cat(str_interp("[![Package on Bioc](https://img.shields.io/badge/Bioconductor-blue)](https://bioconductor.org/packages/${pkg})\n"))
+  }
 }
 
 pkg_install <- function(pkg) {
