@@ -55,7 +55,7 @@ pkg_citation <- function(pkg, number = 1L,
 
   cat("\n\n", header, "\n\n")
   cat("> ")
-  print(ref, type = "text", bibtex = FALSE)
+  print(ref, style = "text", bibtex = FALSE)
 
   cat("\n```\n")
   print(ref, style = "bibtex")
