@@ -32,7 +32,7 @@ pkg_title <- function(pkg, CRAN = TRUE, r_universe = TRUE, Bioc = FALSE, anacond
   }
 
   if (!is.null(stackoverflow)) {
-    cat(str_interp("[![StackOverflow](https://img.shields.io/badge/stackoverflow-rcpp-orange.svg)](https://stackoverflow.com/questions/tagged/$stackoverflow)\n"))
+    cat(str_interp("[![StackOverflow](https://img.shields.io/badge/stackoverflow-rcpp-orange.svg)](https://stackoverflow.com/questions/tagged/${stackoverflow})\n"))
   }
 
 
