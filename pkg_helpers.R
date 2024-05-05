@@ -27,7 +27,7 @@ pkg_title <- function(pkg, CRAN = TRUE, r_universe = TRUE, Bioc = FALSE, anacond
     cat(str_interp("[![Package on Bioc](https://img.shields.io/badge/Bioconductor-blue)](https://bioconductor.org/packages/${pkg})\n"))
   }
   
-  if (!null(anaconda)) {
+  if (!is.null(anaconda)) {
     cat(str_interp("[![Anaconda.org](https://anaconda.org/conda-forge/${anaconda}/badges/version.svg)](https://anaconda.org/conda-forge/${anaconda})\n"))
   }
 
