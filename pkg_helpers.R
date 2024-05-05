@@ -1,7 +1,7 @@
-### these functions help with creating markup files to present package information
+### These functions help with creating markup files to present package information
 ### on GitHub
 
-pkg_title <- function(pkg, CRAN = TRUE, r_universe = TRUE, Bioc = FALSE) {
+pkg_title <- function(pkg, CRAN = TRUE, r_universe = TRUE, Bioc = FALSE, anaconda = NULL, stackoverflow = NULL) {
   title <- gsub("[\r\n]", " ", packageDescription(pkg)$Title)
 
   options(digits = 2)
@@ -26,6 +26,16 @@ pkg_title <- function(pkg, CRAN = TRUE, r_universe = TRUE, Bioc = FALSE) {
   if (Bioc) {
     cat(str_interp("[![Package on Bioc](https://img.shields.io/badge/Bioconductor-blue)](https://bioconductor.org/packages/${pkg})\n"))
   }
+  
+  if (!null(anaconda)) {
+    cat(str_interp("[![Anaconda.org](https://anaconda.org/conda-forge/${anaconda}/badges/version.svg)](https://anaconda.org/conda-forge/${anaconda})\n"))
+  }
+
+  if (!is.null(stackoverflow)) {
+    cat(str_interp("[![StackOverflow](https://img.shields.io/badge/stackoverflow-rcpp-orange.svg)](https://stackoverflow.com/questions/tagged/$stackoverflow)\n"))
+  }
+
+
 }
 
 pkg_install <- function(pkg) {
