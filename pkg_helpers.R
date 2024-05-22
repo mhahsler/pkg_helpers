@@ -38,10 +38,12 @@ pkg_title <- function(pkg, CRAN = TRUE, r_universe = TRUE, Bioc = FALSE, anacond
 
 }
 
-pkg_install <- function(pkg) {
+pkg_install <- function(pkg, CRAN = TRUE) {
   cat('\n\n## Installation\n\n')
-  cat('__Stable CRAN version:__ Install from within R with\n')
-  cat(str_interp('```r\ninstall.packages("${pkg}")\n```\n'))
+  if (CRAN) {
+    cat('__Stable CRAN version:__ Install from within R with\n')
+    cat(str_interp('```r\ninstall.packages("${pkg}")\n```\n'))
+  }
   cat('__Current development version:__\n')
   cat(str_interp('Install from [r-universe.](https://mhahsler.r-universe.dev/${pkg})\n'))
   cat(str_interp('```r\ninstall.packages("${pkg}",\n    repos = c("https://mhahsler.r-universe.dev". "https://cloud.r-project.org/"))\n```'))
