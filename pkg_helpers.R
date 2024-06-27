@@ -1,13 +1,12 @@
 ### These functions help with creating markup files to present package information
 ### on GitHub
+library(stringr)
 
 pkg_title <- function(pkg, CRAN = TRUE, r_universe = TRUE, Bioc = FALSE, anaconda = NULL, stackoverflow = NULL) {
   title <- gsub("[\r\n]", " ", packageDescription(pkg)$Title)
 
   options(digits = 2)
   knitr::opts_chunk$set(tidy = TRUE, message = FALSE, fig.path = 'inst/README_files/')
-
-  library(stringr)
 
   if (file.exists("man/figures/logo.svg"))
     cat(str_interp('# <img src="man/figures/logo.svg" align="right" height="139" /> R package ${pkg} - ${title}\n\n'))
@@ -46,7 +45,7 @@ pkg_install <- function(pkg, CRAN = TRUE) {
   }
   cat('__Current development version:__\n')
   cat(str_interp('Install from [r-universe.](https://mhahsler.r-universe.dev/${pkg})\n'))
-  cat(str_interp('```r\ninstall.packages("${pkg}",\n    repos = c("https://mhahsler.r-universe.dev",\n "https://cloud.r-project.org/"))\n```'))
+  cat(str_interp('```r\ninstall.packages("${pkg}",\n    repos = c("https://mhahsler.r-universe.dev",\n              "https://cloud.r-project.org/"))\n```'))
 }
 
 pkg_usage <- function(pkg, which = c("Depends", "Imports", "Suggests")) {
