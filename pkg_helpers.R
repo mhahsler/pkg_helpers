@@ -12,10 +12,6 @@ pkg_title <- function(pkg, CRAN = TRUE, r_universe = TRUE, Bioc = FALSE, anacond
     cat(str_interp('# <img src="man/figures/logo.svg" align="right" height="139" /> R package ${pkg} - ${title}\n\n'))
   else
     cat(str_interp('# R package ${pkg} - ${title}\n\n'))
-
-  if (r_universe) {
-    cat(str_interp("[![r-universe status](https://mhahsler.r-universe.dev/badges/${pkg})](https://mhahsler.r-universe.dev/${pkg})\n"))
-  }
     
   if (CRAN) {
     cat(str_interp("[![Package on CRAN](https://www.r-pkg.org/badges/version/${pkg})](https://CRAN.R-project.org/package=${pkg})\n"))
@@ -31,6 +27,10 @@ pkg_title <- function(pkg, CRAN = TRUE, r_universe = TRUE, Bioc = FALSE, anacond
     cat(str_interp("[![Anaconda.org](https://anaconda.org/conda-forge/${anaconda}/badges/version.svg)](https://anaconda.org/conda-forge/${anaconda})\n"))
   }
 
+  if (r_universe) {
+    cat(str_interp("[![r-universe status](https://mhahsler.r-universe.dev/badges/${pkg})](https://mhahsler.r-universe.dev/${pkg})\n"))
+  }
+  
   if (!is.null(stackoverflow)) {
     cat(str_interp("[![StackOverflow](https://img.shields.io/badge/stackoverflow-${stackoverflow}-orange.svg)](https://stackoverflow.com/questions/tagged/${stackoverflow})\n"))
   }
