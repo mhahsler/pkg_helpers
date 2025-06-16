@@ -20,6 +20,7 @@ pkg_title <- function(pkg, CRAN = TRUE, r_universe = TRUE, Bioc = FALSE, anacond
   if (CRAN) {
     cat(str_interp("[![Package on CRAN](https://www.r-pkg.org/badges/version/${pkg})](https://CRAN.R-project.org/package=${pkg})\n"))
     cat(str_interp("[![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/${pkg})](https://CRAN.R-project.org/package=${pkg})\n"))
+    cat(str_interp("![License](https://img.shields.io/cran/l/${pkg})\n"))
   }
 
   if (Bioc) {
