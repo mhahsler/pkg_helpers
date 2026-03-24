@@ -12,6 +12,7 @@ pkg_title <- function(pkg, CRAN = TRUE, r_universe = TRUE, Bioc = FALSE, anacond
     cat(str_interp('# <img src="man/figures/logo.svg" align="right" height="139" /> R package ${pkg} - ${title}\n\n'))
   else if (file.exists("man/figures/logo.png"))
     cat(str_interp('# <img src="man/figures/logo.png" align="right" height="139" /> R package ${pkg} - ${title}\n\n'))
+  else
     cat(str_interp('# R package ${pkg} - ${title}\n\n'))
     
   if (CRAN) {
