@@ -37,6 +37,7 @@ pkg_title <- function(pkg, CRAN = TRUE, r_universe = TRUE, Bioc = FALSE, anacond
     cat(str_interp("[![StackOverflow](https://img.shields.io/badge/stackoverflow-${stackoverflow}-orange.svg)](https://stackoverflow.com/questions/tagged/${stackoverflow})\n"))
   }
 
+cat("\n**Author:** [Michael Hahsler](https://michael.hahsler.net)\n\n")
 
 }
 
